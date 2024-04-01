@@ -4,10 +4,12 @@ import { createClient } from "@supabase/supabase-js";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const supabase = createClient(
-  "https://opdtznaqbclnckvremlt.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9wZHR6bmFxYmNsbmNrdnJlbWx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE2MDcwMTQsImV4cCI6MjAyNzE4MzAxNH0.nV54fUEjkNY48epGOy4KDoz5iLtZGyiDBoo_I507vSM"
-);
+// Load environment variables
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+
+// Create Supabase client using environment variables
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const LoginPage = () => {
   const navigate = useNavigate();
